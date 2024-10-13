@@ -1,38 +1,376 @@
-.App {
+/* Gaya untuk kontainer aplikasi */
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Gaya untuk logo di navbar */
+.navbar-logo {
+  width: 35px;
+  height: auto;
+}
+
+/* Gaya untuk Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004085;
+  color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Kontainer untuk judul, timer, dan info */
+.navbar-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.navbar h1 {
+  font-size: 20px;
+  font-family: 'Jelle Roman', sans-serif;
+  margin: 0;
+}
+
+/* Gaya untuk timer dan question-info */
+.navbar .timer,
+.navbar .question-info {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-left: auto;
+  font-weight: bold;
+}
+
+/* Timer untuk pertanyaan */
+.question-timer {
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
   text-align: center;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  margin: 0 auto 15px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.question-timer.low-time {
+  background-color: #f44336;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Gaya untuk garis progres */
+.progress-bar {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 20px;
+  height: 8px;
+  margin: 10px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6f61, #ffc107);
+  transition: width 0.5s ease-in-out;
+}
+
+/* Gaya untuk pertanyaan */
+.question-container {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.question {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Gaya untuk daftar opsi */
+.options-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.options-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.option-item {
+  margin-bottom: 10px;
+}
+
+/* Gaya untuk tombol opsi */
+.option-button {
+  display: block;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.option-button:hover {
+  background-color: #0056b3;
+}
+
+/* Gaya saat tombol dinonaktifkan */
+.option-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Gaya untuk tombol Submit */
+.submit-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 2px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+  transform: scale(1.03);
+}
+
+/* Gaya untuk kontainer feedback */
+.feedback-container {
+  margin-top: 20px;
+  text-align: center;
+  min-height: 50px;
+}
+
+/* Gaya untuk feedback */
+.feedback-correct {
+  font-size: 16px;
+  color: #28a745;
+}
+
+.feedback-incorrect {
+  font-size: 16px;
+  color: #d9534f;
+}
+
+/* Gaya untuk tombol Next */
+.next-button {
+  padding: 8px;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  width: 100%;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.next-button:hover {
+  background-color: #f39c12;
+  transform: scale(1.03);
+}
+
+/* Layar hasil kuis */
+.score-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  background-color: #f5f5f5;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+.score-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #4CAF50;
+}
+
+.score-text {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.score-highlight {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #FF9800;
+}
+
+.restart-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
   color: white;
+  background-color: #2196F3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.restart-button:hover {
+  background-color: #1976D2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Media queries untuk responsivitas tablet */
+@media (max-width: 800px) {
+  .app-container {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 90%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar-logo {
+    width: 30px;
+  }
+
+  .navbar h1 {
+    font-size: 18px;
+  }
+
+  .navbar .timer,
+  .navbar .question-info {
+    font-size: 14px;
+  }
+
+  .question {
+    font-size: 19px;
+  }
+
+  .options-container {
+    padding: 10px;
+  }
+
+  .option-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .submit-button,
+  .next-button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .feedback-correct,
+  .feedback-incorrect {
+    font-size: 14px;
+  }
+
+  .progress-bar {
+    height: 6px;
+  }
+}
+
+/* Media queries untuk responsivitas ponsel */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 90%;
+  }
+
+  .navbar-logo {
+    width: 30px;
+  }
+
+  .navbar h1 {
+    font-size: 15px;
+  }
+
+  .navbar .timer,
+  .navbar .question-info {
+    font-size: 13px;
+  }
+
+  .question-timer {
+    font-size: 15px;
+  }
+
+  .question {
+    font-size: 15px;
+  }
+
+  .options-container {
+    padding: 10px;
+  }
+
+  .option-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .submit-button,
+  .next-button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .feedback-correct,
+  .feedback-incorrect {
+    font-size: 14px;
+  }
+
+  .progress-bar {
+    height: 6px;
+  }
+
+  .score-screen {
+    height: 100vh;
+  }
+
+  .score-title {
+    font-size: 35px;
+  }
+
+  .score-text {
+    font-size: 20px;
+  }
+
+  .score-highlight {
+    font-size: 30px;
+  }
+
+  .restart-button {
+    font-size: 15px;
   }
 }
